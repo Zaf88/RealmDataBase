@@ -1,6 +1,9 @@
 package com.example.realmdatabase
 
+import io.realm.Realm
+import io.realm.kotlin.deleteFromRealm
 import java.util.*
+
 
 class ContactRepositoryImpl(
     //Обязательное добавление Realm, с помощью которого мы будем делать запросы
