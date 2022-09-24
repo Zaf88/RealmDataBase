@@ -1,16 +1,17 @@
-package com.example.realmdatabase
+package com.example.realmdatabase.data
 
+import com.example.realmdatabase.data.model.Contact
 import io.realm.Realm
 import io.realm.kotlin.deleteFromRealm
 import java.util.*
 
 
 class ContactRepositoryImpl(
-    //Обязательное добавление Realm, с помощью которого мы будем делать запросы
+
     private val realm: Realm
 ) : ContactRepository {
     override fun addContact(name: String, surname: String, number: String) {
-        // создаем объект с помощью REALM
+
         realm.executeTransaction {
             it.createObject(Contact::class.java, UUID.randomUUID().toString()).apply {
                 this.name = name
@@ -29,7 +30,7 @@ class ContactRepositoryImpl(
         realm.executeTransaction {
             realm.where(Contact::class.java).equalTo("id", contact.id ).findFirst()
                 ?.deleteFromRealm()
-//            return  realm.where(Contact::class.java).findAll()
+
         }
 
     }
@@ -47,12 +48,3 @@ class ContactRepositoryImpl(
 
 }
 
-//realm.query<Person>("dog == NULL LIMIT(1)")
-//    .first()
-//    .find()
-//    ?.also { personWithoutDog ->
-//        // Add a dog in a transaction
-//        realm.writeBlocking {
-//            findLatest(personWithoutDog)?.dog = Dog().apply { name = "Laika"; age = 3 }
-//        }
-//    }

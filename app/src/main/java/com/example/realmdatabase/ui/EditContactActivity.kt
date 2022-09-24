@@ -1,8 +1,9 @@
-package com.example.realmdatabase
+package com.example.realmdatabase.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.realmdatabase.MainActivity
 import com.example.realmdatabase.databinding.ActivityEditContactBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -10,8 +11,7 @@ class EditContactActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEditContactBinding
 
-//    private val viewModel : MainViewModel by viewModel()
-//привязка ко вью модели с помощью KTX
+
 
     private val viewModel by viewModel<MainViewModel> ()
 

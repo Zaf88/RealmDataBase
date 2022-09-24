@@ -1,4 +1,4 @@
-package com.example.realmdatabase
+package com.example.realmdatabase.extensions
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver

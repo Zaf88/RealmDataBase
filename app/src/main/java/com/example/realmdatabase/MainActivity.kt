@@ -9,10 +9,14 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.example.realmdatabase.databinding.ActivityMainBinding
+import com.example.realmdatabase.ui.AddContactActivity
+import com.example.realmdatabase.ui.ContactsAdapter
+import com.example.realmdatabase.ui.EditContactActivity
+import com.example.realmdatabase.ui.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
-    // новое использование адаптера
+
     private lateinit var binding: ActivityMainBinding
 
     private val defaultLifecycleObserver = object : DefaultLifecycleObserver {
@@ -32,8 +36,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         }
     }
 
-    //    private val viewModel : MainViewModel by viewModel()
-    //Привязка ко вью модели с помощью KTX
+
     private val viewModel by viewModel<MainViewModel> ()
 
 
@@ -42,7 +45,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
         lifecycle.addObserver(defaultLifecycleObserver)
 
-        // новое использование адаптера
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -58,7 +61,7 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         binding.fabAddContact.setOnClickListener {
             startActivity(Intent(this, AddContactActivity::class.java))
         }
-//      Использование библиотеки KTX
+
         binding.etSearch.doAfterTextChanged { text ->  viewModel.contactsShown(text.toString())  }
 
     }
@@ -74,7 +77,4 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
         intent.putExtra("id", id)
         startActivity(intent)
     }
-
-
-
 }

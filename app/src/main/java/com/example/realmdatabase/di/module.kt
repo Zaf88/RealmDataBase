@@ -1,5 +1,8 @@
 package com.example.realmdatabase
 
+import com.example.realmdatabase.data.ContactRepository
+import com.example.realmdatabase.data.ContactRepositoryImpl
+import com.example.realmdatabase.ui.MainViewModel
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import org.koin.android.ext.koin.androidApplication
