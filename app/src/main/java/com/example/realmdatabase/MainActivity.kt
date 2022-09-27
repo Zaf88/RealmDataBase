@@ -60,8 +60,10 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
 
         binding.fabAddContact.setOnClickListener {
             startActivity(Intent(this, AddContactActivity::class.java))
-        }
 
+        hideKeyboard()
+        }
+// Android KTX
         binding.etSearch.doAfterTextChanged { text ->  viewModel.contactsShown(text.toString())  }
 
     }
